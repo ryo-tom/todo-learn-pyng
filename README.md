@@ -33,6 +33,7 @@ todo-learn-pyng/
 - 主要ライブラリ:
   - Flask
   - Flask-CORS
+  - Flask-SQLAlchemy
 
 フロントエンド:
 
@@ -87,6 +88,30 @@ python app.py
 ```
 
 <http://127.0.0.1:5000> にアクセス。
+
+### API確認テスト
+
+サーバーを起動したらAPIを確認
+
+todo取得:
+
+```bash
+curl -X GET http://127.0.0.1:5000/api/todos
+```
+
+新規登録:
+
+```bash
+curl -X POST http://127.0.0.1:5000/api/todos \
+-H "Content-Type: application/json" \
+-d '{"task": "Write Docs", "completed": false}'
+```
+
+削除:
+
+```bash
+curl -X DELETE http://127.0.0.1:5000/api/todos/4
+```
 
 ## フロントエンドセットアップ: Angular
 
