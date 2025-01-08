@@ -1,0 +1,6 @@
+# 全般的な除外ルール
+.DS_Store             # macOS のシステムファイル
+Thumbs.db             # Windows のシステムファイル
+*.log                 # 一般的なログファイル
+*.env                 # 環境変数ファイル
+.vscode/              # Visual Studio Code のワークスペース設定
