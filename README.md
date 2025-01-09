@@ -4,25 +4,15 @@
 
 ## 全体構成
 
-完成イメージ:
+ディレクトリ構成:
 
 ```bash
 todo-learn-pyng/
-├── backend/                  # バックエンド用ディレクトリ
-│   ├── venv/                 # 仮想環境フォルダ
-│   ├── app.py                # Flask アプリのエントリーポイント
-│   ├── requirements.txt      # Python依存関係
-│   ├── docs/                 # API ドキュメント
-│   │   └── swagger.yaml      # Swagger/OpenAPI ドキュメント
-│   ├── tests/                # テスト用ディレクトリ
-│   │   └── test_app.py
-│   └── .gitignore
-├── frontend/                 # フロントエンド用ディレクトリ
-│   ├── src/                  # Angular のソースコード
-│   ├── angular.json          # Angular CLI 設定
-│   └── .gitignore
-├── README.md                 # プロジェクト全体の説明
-└── .gitignore
+├── backend/    # バックエンド用ディレクトリ(Python,Flask)
+├── docs/       # 全体ドキュメント              
+├── frontend/   # フロントエンド用ディレクトリ(Angular)
+├── README.md   # プロジェクト全体の説明
+└── .gitignore 
 ```
 
 ## 開発環境
@@ -45,6 +35,22 @@ todo-learn-pyng/
 - Swagger Viewer (VSCode 拡張機能) [[ref]](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer)
 
 ## バックエンドセットアップ: Python (Flask)
+
+ディレクトリ構成:
+
+```bash
+backend/                  # バックエンド用ディレクトリ
+├── venv/                 # 仮想環境フォルダ (Git管理対象外)
+├── app.py                # Flask アプリのエントリーポイント
+├── requirements.txt      # Python依存関係
+├── instance/             # インスタンスディレクトリ
+│   └── todos.db          # SQLite データベース (Git管理対象外)
+├── docs/                 # API ドキュメント
+│   └── swagger.yaml      # Swagger/OpenAPI ドキュメント
+├── tests/                # テスト用ディレクトリ
+│   └── test_app.py
+└── .gitignore
+```
 
 ### 新規プロジェクトのセットアップ
 
@@ -115,4 +121,58 @@ curl -X DELETE http://127.0.0.1:5000/api/todos/4
 
 ## フロントエンドセットアップ: Angular
 
-WIP:
+ディレクトリ構成:
+
+```bash
+frontend/
+├── README.md                # フロントエンドの説明
+├── angular.json             # Angular CLI 設定
+├── node_modules/            # 依存関係（自動生成）
+├── package-lock.json        # npm 依存関係ロックファイル
+├── package.json             # npm 依存関係
+├── public/                  # 静的ファイル（画像など）
+├── src/                     # ソースコード
+│   ├── app/                 # アプリケーションロジック
+│   ├── index.html           # メインのHTMLファイル
+│   ├── main.ts              # アプリケーションのエントリーポイント
+│   ├── styles.scss          # グローバルスタイル
+├── tsconfig.app.json        # アプリ用TypeScript設定
+├── tsconfig.json            # TypeScript全般の設定
+├── tsconfig.spec.json       # テスト用TypeScript設定
+└── .gitignore               # Git無視設定
+```
+
+### 環境構築
+
+開発環境
+
+```bash
+todo-learn-pyng % node -v
+v22.4.1
+todo-learn-pyng % npm -v
+10.8.1
+```
+
+Angular CLI インストール
+
+```bash
+# グローバルにインストールされる
+% npm install -g @angular/cli
+
+# インストールしたらngコマンドを確認
+% which ng
+/Users/<user>/.nvm/versions/node/v22.4.1/bin/ng
+```
+
+### Angularプロジェクト作成
+
+```bash
+ng new frontend
+```
+
+オプション
+
+- Autocomplete -> Yes
+- share pseudonymous usage data -> No
+- Which stylesheet format -> Sass
+- SSR or SSG -> No
