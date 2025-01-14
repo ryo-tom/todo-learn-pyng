@@ -30,9 +30,13 @@ todo-learn-pyng/
 - **Node.js**: バージョン 22.4 以上
 - **Angular CLI**: 最新バージョン
 
-ツール:
+ツール:(VSCode 拡張機能)
 
-- Swagger Viewer (VSCode 拡張機能) [[ref]](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer)
+- Swagger Viewer [[ref]](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer)
+- Angular Support [[ref]](https://marketplace.visualstudio.com/items?itemName=vismalietuva.vscode-angular-support)
+  HTML<->Typescriptと双方に定義へジャンプできるようになる。
+- vscode-angular-html [[ref]](https://marketplace.visualstudio.com/items?itemName=dunstontc.vscode-angular-syntax)
+  HTMLにAngular用のシンタックスハイライトを追加
 
 ## バックエンドセットアップ: Python (Flask)
 
