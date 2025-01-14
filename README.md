@@ -176,3 +176,11 @@ ng new frontend
 - share pseudonymous usage data -> No
 - Which stylesheet format -> Sass
 - SSR or SSG -> No
+
+開発サーバーの起動
+
+```bash
+ng serve
+```
+
+開発サーバーが起動したら、<http://localhost:4200>でAndularのウェルカムページにアクセスできることを確認。

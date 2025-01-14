@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item',
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './todo-item.component.scss'
 })
 export class TodoItemComponent {
+  @Input() todo: any;
+  @Output() delete = new EventEmitter<number>();
 
+  onDelete(): void {
+    this.delete.emit(this.todo.id);
+  }
 }
