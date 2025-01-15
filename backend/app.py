@@ -58,6 +58,21 @@ def add_todo():
     return jsonify(new_todo.to_dict()), 201
 
 
+# UPDATE: TODOを更新
+@app.route('/api/todos/<int:todo_id>', methods=['PUT'])
+def update_todo(todo_id):
+    data = request.json
+    print(f"Received data for update: {data}")
+
+    todo = Todo.query.get(todo_id)
+    if not todo:
+        return jsonify({"message": "Todo not found"}), 404
+    todo.task = data.get('task', todo.task)
+    todo.completed = data.get('completed', todo.completed)
+    db.session.commit()
+    return jsonify(todo.to_dict()), 200
+
+
 # DELETE: TODOを削除
 @app.route('/api/todos/<int:todo_id>', methods=['DELETE'])
 def delete_todo(todo_id):

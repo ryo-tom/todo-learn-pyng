@@ -1,7 +1,7 @@
-<p>todo-list works!</p>
 <div class="container mt-4">
   <h1>TODO List</h1>
 
+  <!-- 新しいタスクを追加するフォーム -->
   <form (submit)="addTodo(); $event.preventDefault();" class="mt-3">
     <div class="input-group">
       <input
@@ -11,14 +11,25 @@
         [(ngModel)]="newTask"
         name="task"
       >
-      <button type="submit" class="btn btn-primry">追加</button>
+      <button type="submit" class="btn btn-primary">追加</button>
     </div>
   </form>
-</div>
 
-<ul class="list-group mt-3">
-  <li *ngFor="let todo of todos" class="list-group-item d-flex justify-content-between align-items-center">
-    <span>{{ todo.task }}</span>
-    <button class="btn btn-danger btn-sm" (click)="deleteTodo(todo.id)">削除</button>
-  </li>
-</ul>
+  <!-- TODO リストの表示 -->
+  <ul class="list-group mt-3">
+    <li *ngFor="let todo of todos" class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <!-- チェックボックスとタスク名 -->
+        <input
+          type="checkbox"
+          [checked]="todo.completed"
+          (change)="toggleCompletion(todo)"
+        >
+        <span [style.textDecoration]="todo.completed ? 'line-through' : 'none'">
+          {{ todo.task }}
+        </span>
+      </div>
+      <button class="btn btn-danger btn-sm" (click)="deleteTodo(todo.id)">削除</button>
+    </li>
+  </ul>
+</div>

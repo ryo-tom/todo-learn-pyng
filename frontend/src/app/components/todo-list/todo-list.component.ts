@@ -39,6 +39,7 @@ export class TodoListComponent implements OnInit {
       next: (addedTodo) => {
         this.todos.push(addedTodo);
         this.newTask = ''; // フォームリセット
+        this.sortTodos();
       },
       error: (err) => {
         console.error('Failed to add TODO:', err);
@@ -55,5 +56,26 @@ export class TodoListComponent implements OnInit {
         console.error('Failed to delete TODO:', err);
       }
     });
+  }
+
+  toggleCompletion(todo: any): void {
+    console.log('toggleCompletion called for:', todo);
+
+    const updatedTodo = { ...todo, completed: !todo.completed };
+    this.todoService.updateTodo(todo.id, updatedTodo).subscribe({
+      next: (response) => {
+        todo.completed = response.completed;
+        console.log('Successfully updated TODO:', response);
+      },
+      error: (err) => {
+        console.error('Failed to toggle TODO completion:', err);
+      }
+    });
+  }
+
+  private sortTodos(): void {
+    console.log('sortされました。');
+
+    this.todos.sort((a, b) => Number(a.completed) - Number(b.completed));
   }
 }
